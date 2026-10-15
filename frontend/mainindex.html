@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#071009">
+<meta name="description" content="SafenetAI — a modern phishing-link risk analysis dashboard.">
+<title>SafenetAI — Threat Intelligence</title>
+<style>
+:root{--bg:#060e08;--panel:#0b180e;--panel2:#0e1d12;--line:#1a3321;--muted:#7f9485;--text:#d2f4dc;--white:#dbffe6;--accent:#bfdec8;--green:#7dd3a7;--amber:#f2c879;--red:#ff7c86;--blue:#9ca9ff;--radius:16px;--shadow:0 18px 50px #00020055}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 65% -20%,#193320 0%,transparent 40%),var(--bg);color:var(--text);font:14px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:.01em}button,input{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}.app{display:grid;grid-template-columns:248px minmax(0,1fr);min-height:100vh}.sidebar{border-right:1px solid var(--line);background:#071009eb;padding:24px 16px;display:flex;flex-direction:column;position:sticky;top:0;height:100vh}.brand{display:flex;align-items:center;gap:11px;padding:0 10px 28px}.brand-mark{width:34px;height:34px;border-radius:11px;display:grid;place-items:center;background:linear-gradient(145deg,#d3f5dd,#7e9284);color:#0a150d;font-weight:900;font-size:18px;box-shadow:0 5px 22px #dbffe622}.brand-name{font-size:17px;font-weight:750;letter-spacing:-.04em}.brand-name span{color:#7f9485;font-weight:500}.workspace{margin:0 7px 23px;padding:12px;border:1px solid var(--line);border-radius:12px;background:#dbffe604;display:flex;align-items:center;gap:10px}.workspace-icon{width:28px;height:28px;border-radius:8px;background:#172f1e;display:grid;place-items:center;color:#afccb8}.workspace small{display:block;color:var(--muted);font-size:10px}.workspace strong{font-size:12px}.nav-label{font-size:10px;color:#607064;text-transform:uppercase;letter-spacing:.15em;padding:0 12px 9px;font-weight:700}.nav{display:grid;gap:4px}.nav button{border:0;background:transparent;color:#92aa99;padding:11px 12px;border-radius:10px;text-align:left;display:flex;align-items:center;gap:12px;font-size:13px;transition:.2s}.nav button:hover,.nav button.active{background:#14291a;color:#dbffe6}.nav button.active{box-shadow:inset 2px 0 #c7e8d0}.nav .ico{width:17px;text-align:center;color:#849a8a;font-size:16px}.nav .count{margin-left:auto;font-size:10px;background:#1a3421;padding:2px 7px;border-radius:20px;color:#afcbb7}.side-bottom{margin-top:auto}.status-card{padding:14px;border:1px solid var(--line);background:linear-gradient(140deg,#0f1f13,#09140c);border-radius:13px;margin:12px 4px 15px}.status-head{display:flex;align-items:center;gap:7px;font-size:11px;color:#b5d2bd}.dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 12px #7dd3a755}.status-card p{color:var(--muted);font-size:11px;margin:8px 0 0}.profile{display:flex;gap:10px;align-items:center;padding:14px 9px 0;border-top:1px solid var(--line)}.avatar{width:32px;height:32px;border-radius:10px;background:#21412a;display:grid;place-items:center;font-size:11px;font-weight:700}.profile strong{display:block;font-size:12px}.profile small{color:var(--muted);font-size:10px}.profile .more{margin-left:auto;color:var(--muted)}main{min-width:0;padding:0 34px 42px}.topbar{height:76px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:16px}.crumb{font-size:12px;color:var(--muted)}.crumb b{color:#c8e9d1;font-weight:600}.top-actions{display:flex;align-items:center;gap:10px}.icon-btn{height:36px;width:36px;border:1px solid var(--line);border-radius:10px;background:#0d1b11;color:#aac5b2;display:grid;place-items:center}.icon-btn:hover{background:#152a1b}.env{display:flex;align-items:center;gap:7px;color:#a4bfac;border:1px solid var(--line);border-radius:9px;padding:8px 10px;font-size:11px}.env .dot{background:#a4bfac;box-shadow:none}.content{max-width:1420px;margin:0 auto}.hero{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;padding:34px 0 25px}.eyebrow{color:#889e8e;text-transform:uppercase;letter-spacing:.16em;font-size:10px;font-weight:700;display:flex;align-items:center;gap:8px}.eyebrow:before{content:"";width:18px;height:1px;background:#748679}.hero h1{font-size:clamp(27px,3vw,36px);letter-spacing:-.055em;line-height:1.12;margin:10px 0 9px;font-weight:650}.hero p{color:var(--muted);margin:0;font-size:13px}.hero-meta{display:flex;align-items:center;gap:8px;color:#84998a;font-size:11px;white-space:nowrap}.live-pill{border:1px solid #22442c;background:#102114;color:#a5e3bf;padding:6px 9px;border-radius:7px;display:flex;align-items:center;gap:6px}.live-pill .dot{width:6px;height:6px}.scan-panel{border:1px solid #204129;background:linear-gradient(130deg,#0f1f13 0%,#0b180e 58%,#0e1c11 100%);border-radius:18px;padding:23px;box-shadow:var(--shadow);position:relative;overflow:hidden}.scan-panel:after{content:"";position:absolute;width:280px;height:280px;right:-120px;top:-190px;border-radius:50%;border:1px solid #dbffe608;box-shadow:0 0 0 35px #dbffe603,0 0 0 70px #dbffe602;pointer-events:none}.panel-top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:17px;position:relative;z-index:1}.panel-title{font-weight:650;font-size:14px;display:flex;align-items:center;gap:9px}.panel-title .mini-shield{width:27px;height:27px;border:1px solid #24482e;background:#172e1d;border-radius:8px;display:grid;place-items:center;font-size:14px}.subtle{font-size:11px;color:var(--muted)}.scan-form{display:flex;gap:10px;position:relative;z-index:1}.input-wrap{flex:1;position:relative;min-width:0}.input-wrap .link-icon{position:absolute;left:15px;top:14px;color:#76897b}.input-wrap input{width:100%;height:48px;background:#071009;border:1px solid #22432b;border-radius:10px;color:#d3f5dd;padding:0 15px 0 43px;outline:none;transition:.2s}.input-wrap input::placeholder{color:#407d51}.input-wrap input:focus{border-color:#889e8e;box-shadow:0 0 0 3px #a5bfac0e}.primary{height:48px;border:1px solid #d3f5dd;border-radius:10px;background:#c9ead2;color:#0a160d;font-weight:750;padding:0 20px;display:flex;align-items:center;justify-content:center;gap:9px;white-space:nowrap;transition:.2s}.primary:hover{background:#dbffe6;transform:translateY(-1px)}.primary:disabled{opacity:.55;cursor:wait;transform:none}.scan-foot{display:flex;align-items:center;gap:8px;margin-top:12px;color:#798d7f;font-size:10px}.scan-foot .lock{font-size:12px}.scan-foot span:last-child{margin-left:auto}.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;margin:19px 0 25px}.metric{border:1px solid var(--line);border-radius:14px;padding:17px;background:linear-gradient(145deg,#0e1c11,#0a150d);min-width:0}.metric-top{display:flex;align-items:center;justify-content:space-between;color:#879d8e;font-size:11px;gap:8px}.metric-icon{height:28px;width:28px;border:1px solid #1e3b26;border-radius:8px;display:grid;place-items:center;color:#afccb8;background:#122517;font-size:13px}.metric-value{font-size:27px;letter-spacing:-.05em;font-weight:650;margin:13px 0 3px}.metric-note{color:#798d7f;font-size:10px;display:flex;align-items:center;gap:5px}.up{color:var(--green)}.down{color:var(--red)}.content-grid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(280px,1fr);gap:15px}.card{border:1px solid var(--line);border-radius:15px;background:linear-gradient(145deg,#0d1b11,#0a150d);min-width:0;overflow:hidden}.card-head{padding:18px 19px 14px;display:flex;justify-content:space-between;align-items:flex-start;gap:12px}.card-head h2{font-size:13px;font-weight:650;margin:0 0 4px}.card-head p{font-size:10px;color:var(--muted);margin:0}.text-btn{border:1px solid #1e3d27;background:#0f2014;color:#afcbb7;border-radius:8px;padding:7px 10px;font-size:10px}.text-btn:hover{background:#172f1e}.chart-wrap{padding:0 15px 15px}.chart-legend{display:flex;gap:14px;align-items:center;color:#84998a;font-size:10px;padding:0 5px 12px}.legend-dot{display:inline-block;width:6px;height:6px;border-radius:2px;margin-right:5px;background:#afcbb7}.legend-dot.dim{background:#2f5d3c}.chart{height:176px;width:100%;display:block}.chart-labels{display:flex;justify-content:space-between;padding:5px 6px 0;color:#6a7b6f;font-size:9px}.risk-list{padding:0 18px 15px}.risk-row{display:flex;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid #18301e}.risk-row:last-child{border-bottom:0}.risk-icon{height:31px;width:31px;flex:none;border-radius:9px;background:#152a1a;border:1px solid #21422a;color:var(--red);display:grid;place-items:center}.risk-icon.amber{background:#142a1a;border-color:#4a3e29;color:var(--amber)}.risk-icon.neutral{background:#152a1b;border-color:#21412a;color:#acc8b4}.risk-main{min-width:0;flex:1}.risk-main strong{display:block;font-size:11px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.risk-main small{display:block;color:#738679;font-size:10px;margin-top:3px}.risk-score{font-size:11px;font-weight:700;color:var(--red)}.risk-score.mid{color:var(--amber)}.risk-score.low{color:var(--green)}.table-card{margin-top:15px}.table-scroll{overflow-x:auto}table{width:100%;border-collapse:collapse;white-space:nowrap}th{text-align:left;padding:11px 18px;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:#6b7c70;font-weight:650;background:#dbffe602;border-top:1px solid #172f1e;border-bottom:1px solid #172f1e}td{padding:13px 18px;border-bottom:1px solid #162c1c;color:#aecab6;font-size:11px}tbody tr:last-child td{border-bottom:0}tbody tr:hover{background:#dbffe603}.url-cell{display:flex;align-items:center;gap:9px;max-width:300px}.url-glyph{height:27px;width:27px;flex:none;border-radius:8px;border:1px solid #1e3d27;background:#14291a;display:grid;place-items:center;color:#a2bcaa}.url-text{overflow:hidden;text-overflow:ellipsis}.url-text strong{display:block;color:#c4e4cd;font-size:11px;font-weight:550;overflow:hidden;text-overflow:ellipsis}.url-text small{display:block;color:#6e7f73;font-size:9px;margin-top:2px}.badge{display:inline-flex;align-items:center;gap:5px;border-radius:6px;padding:5px 7px;font-size:9px;font-weight:650;border:1px solid}.badge:before{content:"";height:5px;width:5px;border-radius:50%;background:currentColor}.badge.danger{color:#ff969e;border-color:#4a2c32;background:#112316}.badge.warning{color:#f1cc83;border-color:#4b3c25;background:#132618}.badge.safe{color:#91dfb0;border-color:#2d4839;background:#102215}.badge.unknown{color:#acc8b4;border-color:#24472d;background:#14291a}.table-footer{padding:12px 18px;border-top:1px solid #172f1e;display:flex;align-items:center;justify-content:space-between;color:#6e7f73;font-size:10px}.pagination{display:flex;gap:5px}.pagination button{border:1px solid #1e3d27;background:#0f1f13;color:#aecab6;border-radius:6px;width:25px;height:25px;font-size:10px}.pagination button.active{background:#c6e6cf;color:#0a150d;border-color:#c6e6cf}.footer{display:flex;justify-content:space-between;gap:12px;color:#3d784e;font-size:10px;padding:25px 2px 0}.footer span{display:flex;gap:6px;align-items:center}.toast{position:fixed;right:22px;bottom:22px;background:#132718;border:1px solid #2a5235;border-radius:12px;padding:14px 17px;box-shadow:var(--shadow);max-width:360px;display:none;z-index:10;font-size:12px}.toast.show{display:block;animation:slide .2s ease}.toast strong{display:block;margin-bottom:3px}.toast p{color:#92a998;margin:0;font-size:11px}@keyframes slide{from{transform:translateY(8px);opacity:0}to{transform:translateY(0);opacity:1}}.mobile-menu{display:none}
+@media(max-width:1050px){.app{grid-template-columns:210px minmax(0,1fr)}main{padding:0 22px 35px}.metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.content-grid{grid-template-columns:1fr}.risk-card{display:grid;grid-template-columns:1fr 1fr}.risk-card .card-head{grid-column:1/-1}.risk-list{padding-bottom:12px}.risk-row{border-bottom:0;border-top:1px solid #18301e}.risk-row:nth-child(odd){margin-right:10px}}
+@media(max-width:700px){.app{display:block}.sidebar{position:fixed;z-index:20;left:-260px;top:0;width:248px;transition:left .25s;box-shadow:var(--shadow)}.sidebar.open{left:0}.mobile-menu{display:grid}.topbar{height:65px}.top-actions .env{display:none}main{padding:0 15px 28px}.hero{display:block;padding:27px 0 20px}.hero-meta{margin-top:15px}.scan-panel{padding:17px}.scan-form{flex-direction:column}.primary{width:100%}.scan-foot{flex-wrap:wrap}.scan-foot span:last-child{margin-left:0;width:100%}.metrics{gap:9px;margin:13px 0 18px}.metric{padding:13px}.metric-value{font-size:23px}.metric-top{font-size:10px}.metric-icon{height:25px;width:25px}.content-grid{gap:12px}.risk-card{display:block}.risk-row:nth-child(odd){margin-right:0}.risk-list{padding-bottom:14px}.card-head{padding:16px}.table-card{margin-top:12px}.footer{flex-direction:column}.topbar .crumb{font-size:11px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+
+  .kraken{width:min(380px,80vw);height:auto;overflow:visible;--eye:#9dff5c;--glow:#37ff7a;--dot:#7cffa0}
+  .kraken[data-mood="scan"]{--eye:#5cf0ff;--glow:#2ad0ff;--dot:#7ee8ff}
+  .kraken[data-mood="threat"]{--eye:#ff5c5c;--glow:#ff2a2a;--dot:#ff8a8a}
+  .kraken[data-mood="safe"]{--eye:#b6ff6a;--glow:#37ff7a;--dot:#7cffa0}
+
+  .kraken .float{animation:bob 4s ease-in-out infinite;transform-origin:200px 200px}
+  @keyframes bob{50%{transform:translateY(-8px)}}
+
+  .kraken .body{fill:none;stroke:#0c3b25;stroke-width:17;stroke-linecap:round}
+  .kraken .shine{fill:none;stroke:#1d8a50;stroke-width:5;stroke-linecap:round;opacity:.55;transform:translate(-2px,-2px)}
+  .kraken .dots{fill:none;stroke:var(--dot);stroke-width:5;stroke-linecap:round;stroke-dasharray:.1 15;filter:url(#kr-glow);animation:dots 2.4s ease-in-out infinite}
+  @keyframes dots{50%{opacity:.35}}
+
+  .kraken .t{transform-origin:200px 200px;animation:sway 3.2s ease-in-out infinite}
+  .kraken .t1{animation-delay:-.4s}.kraken .t2{animation-delay:-1.2s}
+  .kraken .t3{animation-delay:-2s;animation-duration:2.6s}.kraken .t4{animation-delay:-.9s;animation-duration:3.8s}
+  @keyframes sway{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(5deg)}}
+  .kraken[data-mood="threat"] .t{animation-duration:.7s}
+  .kraken[data-mood="scan"] .t{animation-duration:1.8s}
+
+  .kraken .eyeglow{fill:var(--glow);filter:url(#kr-blur);opacity:.8;animation:pulse 2s ease-in-out infinite}
+  .kraken .eyeball{fill:var(--eye)}
+  .kraken .pupil{fill:#060d07}
+  .kraken .eye{transform-origin:200px 140px;animation:blink 5s infinite}
+  @keyframes blink{0%,94%,100%{transform:scaleY(1)}97%{transform:scaleY(.08)}}
+  @keyframes pulse{50%{opacity:.4}}
+  .kraken .pupils{transition:transform .12s ease-out}
+  .kraken .spot{fill:var(--dot);filter:url(#kr-glow);animation:dots 3s ease-in-out infinite}
+  .kraken[data-mood="threat"] .head{animation:shake .12s linear infinite}
+  @keyframes shake{25%{transform:translateX(-2px)}75%{transform:translateX(2px)}}
+  .kraken[data-mood="scan"] .scanline{opacity:1}
+  .scanline{opacity:0;fill:none;stroke:var(--glow);stroke-width:2;filter:url(#kr-glow);animation:scan 1.4s linear infinite}
+  @keyframes scan{from{transform:translateY(40px)}to{transform:translateY(200px)}}
+
+  @media (prefers-reduced-motion:reduce){.kraken *{animation:none!important}}
+  
+.kraken-wrap{flex:1;display:flex;justify-content:center;align-self:center;margin:-6px 0 -14px;min-width:0}
+.kraken-wrap .kraken{width:200px}
+@media(max-width:700px){.kraken-wrap{margin:16px 0 0}.kraken-wrap .kraken{width:150px}}
+
+/* ===== Green theme (matches kraken) ===== */
+:root{--green:#3df08a;--accent:#b8f5d0;--glowg:#37ff7a}
+body{background:radial-gradient(ellipse at 65% -20%,#124a2c 0%,transparent 42%),radial-gradient(ellipse at 0% 100%,#0a2a1a 0%,transparent 40%),var(--bg)}
+.brand-mark{background:linear-gradient(145deg,#6dffa6,#1a9a55);color:#03130a;box-shadow:0 5px 24px #37ff7a44}
+.brand-name span{color:#3df08a}
+.nav button.active{box-shadow:inset 2px 0 #3df08a;background:#12301f;color:#eafff2}
+.nav button.active .ico{color:#3df08a}
+.eyebrow{color:#5fe39a}.eyebrow:before{background:#3df08a}
+.hero h1{font-size:clamp(28px,3.2vw,40px);line-height:1.08}
+.hero h1 em{font-style:normal;background:linear-gradient(90deg,#7dffb0,#2ee67a);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero>div:first-child{max-width:420px}
+.primary{background:linear-gradient(180deg,#4cf596,#26c867);border-color:#4cf596;color:#03130a;box-shadow:0 6px 22px #37ff7a33}
+.primary:hover{background:linear-gradient(180deg,#6dffa8,#33d675);box-shadow:0 8px 28px #37ff7a55}
+.input-wrap input:focus{border-color:#3df08a;box-shadow:0 0 0 3px #3df08a22}
+.scan-panel{border-color:#1f5a3a;box-shadow:0 18px 50px #0005,inset 0 0 40px #37ff7a0d}
+.metric-icon,.panel-title .mini-shield{color:#5fe39a}
+.pagination button.active{background:#3df08a;border-color:#3df08a;color:#03130a}
+.live-pill{border-color:#1f6b42;background:#0d2c1b;color:#7dffb0}
+.card,.metric{border-color:#1d3a2a}
+
+/* ===== Centered hero ===== */
+.hero{flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:0;padding:14px 0 30px}
+.kraken-wrap{flex:none;margin:0 0 -8px}.kraken-wrap .kraken{width:250px}
+.hero .hero-text{max-width:780px}
+.eyebrow{justify-content:center;letter-spacing:.3em;font-size:11px}
+.eyebrow:after{content:"";width:18px;height:1px;background:#3df08a}
+.hero h1{font-size:clamp(34px,5.4vw,62px);font-weight:800;letter-spacing:-.045em;line-height:1.04;margin:14px 0 14px;color:#eafff2;text-shadow:0 0 38px #37ff7a2e}
+.hero h1 em{display:inline-block;filter:drop-shadow(0 0 18px #37ff7a66)}
+.hero .hero-text p{max-width:470px;margin:0 auto;font-size:14px;color:#8fb8a0}
+.hero .hero-text:after{content:"";display:block;width:90px;height:3px;margin:20px auto 0;border-radius:3px;background:linear-gradient(90deg,transparent,#3df08a,transparent);box-shadow:0 0 16px #3df08a}
+.hero-meta{margin-top:18px;justify-content:center}
+@media(max-width:700px){.kraken-wrap .kraken{width:170px}.hero{padding:16px 0 22px}.hero-meta{flex-wrap:wrap}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar" id="sidebar">
+  <div class="brand"><div class="brand-mark">S</div><div class="brand-name">safenet<span>ai</span></div></div>
+  <div class="workspace"><div class="workspace-icon">⌘</div><div><small>WORKSPACE</small><strong>Security Operations</strong></div><span style="margin-left:auto;color:#6a7c6f">⌄</span></div>
+  <div class="nav-label">Platform</div>
+  <nav class="nav" aria-label="Main navigation">
+    <button class="active" data-view="overview"><span class="ico">▦</span>Overview</button>
+    <button data-view="scanner"><span class="ico">⌕</span>URL Scanner <span class="count">New</span></button>
+    <button data-view="threats"><span class="ico">◈</span>Threat Intelligence</button>
+    <button data-view="history"><span class="ico">◷</span>Scan History</button>
+    <button data-view="reports"><span class="ico">▤</span>Reports</button>
+  </nav>
+  <div class="nav-label" style="margin-top:28px">Manage</div>
+  <nav class="nav" aria-label="Management navigation">
+    <button data-view="integrations"><span class="ico">⛓</span>Integrations</button>
+    <button data-view="settings"><span class="ico">⚙</span>Settings</button>
+  </nav>
+  <div class="side-bottom">
+    <div class="status-card"><div class="status-head"><span class="dot"></span>Protection systems operational</div><p>Last system check · 2 minutes ago</p></div>
+    <div class="profile"><div class="avatar">SA</div><div><strong>Security Analyst</strong><small>Admin workspace</small></div><span class="more">•••</span></div>
+  </div>
+</aside>
+<main>
+  <header class="topbar">
+    <div style="display:flex;align-items:center;gap:12px"><button class="icon-btn mobile-menu" id="menuBtn" aria-label="Open navigation">☰</button><div class="crumb">Workspace <span style="padding:0 7px;color:#326340">/</span> <b id="breadcrumb">Overview</b></div></div>
+    <div class="top-actions"><div class="env"><span class="dot"></span>Demo environment</div><button class="icon-btn" id="helpBtn" aria-label="Help">?</button><button class="icon-btn" id="notifBtn" aria-label="Notifications">♧</button></div>
+  </header>
+  <div class="content">
+    <section class="hero"><div class="kraken-wrap"><svg class="kraken" id="kraken" data-mood="safe" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="SafenetAI kraken mascot">
+  <defs>
+    <radialGradient id="kr-hg" cx="50%" cy="30%" r="75%">
+      <stop offset="0" stop-color="#1f7a48"/><stop offset=".6" stop-color="#0d3b25"/><stop offset="1" stop-color="#09130b"/>
+    </radialGradient>
+    <filter id="kr-blur" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="9"/></filter>
+    <filter id="kr-glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="1.6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <clipPath id="kr-hclip"><path d="M110 150C110 60 150 25 200 25S290 60 290 150C290 190 260 215 200 215S110 190 110 150Z"/></clipPath>
+
+    <path id="kr-p1" d="M178 195C120 225 80 250 62 298C48 338 82 362 100 342"/>
+    <path id="kr-p2" d="M186 205C152 258 132 298 122 348C116 380 152 386 152 364"/>
+    <path id="kr-p3" d="M196 210C186 268 192 318 178 362C172 384 198 392 198 374"/>
+    <path id="kr-p4" d="M165 185C102 186 42 200 26 250C16 285 46 292 52 270"/>
+    <g id="kr-tent">
+      <g class="t t4"><use href="#kr-p4" class="body"/><use href="#kr-p4" class="shine"/><use href="#kr-p4" class="dots"/></g>
+      <g class="t t1"><use href="#kr-p1" class="body"/><use href="#kr-p1" class="shine"/><use href="#kr-p1" class="dots"/></g>
+      <g class="t t2"><use href="#kr-p2" class="body"/><use href="#kr-p2" class="shine"/><use href="#kr-p2" class="dots"/></g>
+      <g class="t t3"><use href="#kr-p3" class="body"/><use href="#kr-p3" class="shine"/><use href="#kr-p3" class="dots"/></g>
+    </g>
+  </defs>
+
+  <g class="float">
+    <!-- tentacles (right side is a mirror) -->
+    <use href="#kr-tent"/>
+    <use href="#kr-tent" transform="translate(400 0) scale(-1 1)" style="animation-direction:reverse"/>
+
+    <!-- head -->
+    <g class="head">
+      <path d="M110 150C110 60 150 25 200 25S290 60 290 150C290 190 260 215 200 215S110 190 110 150Z" fill="url(#kr-hg)" stroke="#2fb868" stroke-opacity=".5" stroke-width="2"/>
+      <g clip-path="url(#kr-hclip)">
+        <path d="M200 25V105" stroke="#27a35f" stroke-width="3" opacity=".6"/>
+        <path d="M150 40C165 70 175 95 180 115M250 40C235 70 225 95 220 115" stroke="#27a35f" stroke-width="2.5" fill="none" opacity=".4"/>
+        <circle class="spot" cx="140" cy="95" r="3.5"/><circle class="spot" cx="160" cy="70" r="3" style="animation-delay:-1s"/>
+        <circle class="spot" cx="260" cy="95" r="3.5" style="animation-delay:-.5s"/><circle class="spot" cx="240" cy="70" r="3" style="animation-delay:-1.8s"/>
+        <circle class="spot" cx="200" cy="55" r="3.5" style="animation-delay:-2.2s"/>
+        <circle class="spot" cx="128" cy="150" r="3" style="animation-delay:-1.3s"/><circle class="spot" cx="272" cy="150" r="3" style="animation-delay:-.2s"/>
+        <path class="scanline" d="M105 0H295"/>
+      </g>
+      <!-- brows -->
+      <path d="M135 122L185 138M265 122L215 138" stroke="#060d07" stroke-width="9" stroke-linecap="round"/>
+      <!-- eyes -->
+      <g class="eye">
+        <ellipse class="eyeglow" cx="162" cy="148" rx="26" ry="18"/><ellipse class="eyeglow" cx="238" cy="148" rx="26" ry="18"/>
+        <ellipse class="eyeball" cx="162" cy="148" rx="19" ry="13"/><ellipse class="eyeball" cx="238" cy="148" rx="19" ry="13"/>
+        <g class="pupils" id="pupils">
+          <rect class="pupil" x="159" y="138" width="6" height="20" rx="3"/><rect class="pupil" x="235" y="138" width="6" height="20" rx="3"/>
+        </g>
+      </g>
+      <!-- mouth -->
+      <path d="M180 190Q200 200 220 190" stroke="#060d07" stroke-width="4" fill="none" stroke-linecap="round"/>
+    </g>
+  </g>
+</svg></div><div class="hero-text"><div class="eyebrow">AI-powered phishing detection</div><h1>Smarter Detection.<br><em>Safer Browsing.</em></h1><p>Real-time URL analysis and threat intelligence, so you stay one step ahead.</p></div><div class="hero-meta"><span class="live-pill"><span class="dot"></span>Systems live</span><span id="dateLabel">Updated just now</span></div></section>
+    <section class="scan-panel" id="scannerPanel">
+      <div class="panel-top"><div class="panel-title"><span class="mini-shield">⌁</span>Analyze a URL</div><span class="subtle">AI-powered risk assessment</span></div>
+      <form class="scan-form" id="scanForm"><div class="input-wrap"><span class="link-icon">↗</span><input id="urlInput" type="text" inputmode="url" autocomplete="url" placeholder="Paste a URL to inspect (e.g. https://example.com)" aria-label="URL to scan" required></div><button class="primary" id="scanBtn" type="submit"><span>⌕</span> Scan URL <span>→</span></button></form>
+      <div class="scan-foot"><span class="lock">♧</span><span>Scans are simulated in this frontend demo.</span><span>Never enter credentials or sensitive URLs.</span></div>
+    </section>
+    <section class="metrics" aria-label="Security metrics">
+      <article class="metric"><div class="metric-top">URLs analyzed <span class="metric-icon">⌕</span></div><div class="metric-value" id="metricScans">12,846</div><div class="metric-note"><span class="up">↗ 12.8%</span> <span>vs. previous 30 days</span></div></article>
+      <article class="metric"><div class="metric-top">Threats detected <span class="metric-icon">◈</span></div><div class="metric-value">1,294</div><div class="metric-note"><span class="down">↑ 4.2%</span> <span>detections this month</span></div></article>
+      <article class="metric"><div class="metric-top">High-risk URLs <span class="metric-icon">⚠</span></div><div class="metric-value">8.7%</div><div class="metric-note"><span>of analyzed URLs</span></div></article>
+      <article class="metric"><div class="metric-top">Mean scan time <span class="metric-icon">◷</span></div><div class="metric-value">1.42<span style="font-size:14px;color:#8ca393;font-weight:500">s</span></div><div class="metric-note"><span class="up">↓ 180ms</span> <span>faster than last month</span></div></article>
+    </section>
+    <section class="content-grid">
+      <article class="card"><div class="card-head"><div><h2>Threat activity</h2><p>URL analysis volume over the last 7 days</p></div><button class="text-btn" id="periodBtn">Last 7 days⌄</button></div>
+        <div class="chart-wrap"><div class="chart-legend"><span><i class="legend-dot"></i>URLs analyzed</span><span><i class="legend-dot dim"></i>Threats flagged</span></div>
+        <svg class="chart" viewBox="0 0 620 180" preserveAspectRatio="none" role="img" aria-label="Chart showing URL analysis volume trending upward through the week">
+          <defs><linearGradient id="area" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#3df08a" stop-opacity=".18"/><stop offset="100%" stop-color="#3df08a" stop-opacity="0"/></linearGradient></defs>
+          <g stroke="#1b3622" stroke-width="1"><path d="M35 20H610"/><path d="M35 58H610"/><path d="M35 96H610"/><path d="M35 134H610"/></g>
+          <g fill="#6a7b6f" font-size="9"><text x="3" y="23">600</text><text x="3" y="61">400</text><text x="3" y="99">200</text><text x="15" y="137">0</text></g>
+          <path d="M35 114 L130 94 L226 102 L322 61 L418 72 L514 39 L610 48 L610 134 L35 134Z" fill="url(#area)"/>
+          <path d="M35 114 L130 94 L226 102 L322 61 L418 72 L514 39 L610 48" fill="none" stroke="#3df08a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M35 128 L130 119 L226 123 L322 108 L418 115 L514 97 L610 103" fill="none" stroke="#2a8a53" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 4"/>
+          <g fill="#9dffc4" stroke="#0b180e" stroke-width="2"><circle cx="35" cy="114" r="3.5"/><circle cx="130" cy="94" r="3.5"/><circle cx="226" cy="102" r="3.5"/><circle cx="322" cy="61" r="3.5"/><circle cx="418" cy="72" r="3.5"/><circle cx="514" cy="39" r="3.5"/><circle cx="610" cy="48" r="3.5"/></g>
+        </svg><div class="chart-labels"><span>Oct 08</span><span>Oct 09</span><span>Oct 10</span><span>Oct 11</span><span>Oct 12</span><span>Oct 13</span><span>Oct 14</span></div></div>
+      </article>
+      <article class="card risk-card"><div class="card-head"><div><h2>Recent threat signals</h2><p>Priority indicators from monitored activity</p></div><button class="text-btn" id="viewThreats">View all ↗</button></div>
+        <div class="risk-list">
+          <div class="risk-row"><div class="risk-icon">⚠</div><div class="risk-main"><strong>Credential harvesting</strong><small>Lookalike sign-in domain</small></div><div class="risk-score">CRITICAL</div></div>
+          <div class="risk-row"><div class="risk-icon amber">⌁</div><div class="risk-main"><strong>Suspicious redirect chain</strong><small>Multiple redirect hops</small></div><div class="risk-score mid">HIGH</div></div>
+          <div class="risk-row"><div class="risk-icon neutral">◈</div><div class="risk-main"><strong>Newly registered domain</strong><small>Domain age signal</small></div><div class="risk-score mid">MEDIUM</div></div>
+        </div>
+      </article>
+    </section>
+    <section class="card table-card" id="historyPanel"><div class="card-head"><div><h2>Recent URL scans</h2><p>Latest analysis activity across your workspace</p></div><button class="text-btn" id="exportBtn">↧ Export CSV</button></div>
+      <div class="table-scroll"><table><thead><tr><th>URL / Domain</th><th>Risk level</th><th>Risk score</th><th>Detection signals</th><th>Scanned</th><th></th></tr></thead><tbody id="scanRows">
+        <tr><td><div class="url-cell"><div class="url-glyph">↗</div><div class="url-text"><strong>secure-account-verify.example</strong><small>https://secure-account-verify.example/login</small></div></div></td><td><span class="badge danger">Malicious</span></td><td style="color:#ff969e;font-weight:700">98 / 100</td><td>4 indicators</td><td>2 min ago</td><td>···</td></tr>
+        <tr><td><div class="url-cell"><div class="url-glyph">↗</div><div class="url-text"><strong>billing-update.example</strong><small>https://billing-update.example/portal</small></div></div></td><td><span class="badge warning">Suspicious</span></td><td style="color:#f1cc83;font-weight:700">72 / 100</td><td>3 indicators</td><td>18 min ago</td><td>···</td></tr>
+        <tr><td><div class="url-cell"><div class="url-glyph">↗</div><div class="url-text"><strong>docs.example.org</strong><small>https://docs.example.org/resources</small></div></div></td><td><span class="badge safe">Low risk</span></td><td style="color:#91dfb0;font-weight:700">08 / 100</td><td>0 indicators</td><td>42 min ago</td><td>···</td></tr>
+        <tr><td><div class="url-cell"><div class="url-glyph">↗</div><div class="url-text"><strong>account-support.example</strong><small>https://account-support.example/auth</small></div></div></td><td><span class="badge danger">Malicious</span></td><td style="color:#ff969e;font-weight:700">91 / 100</td><td>5 indicators</td><td>1 hr ago</td><td>···</td></tr>
+      </tbody></table></div>
+      <div class="table-footer"><span id="tableCount">Showing 4 of 12846 scans · Demo data</span><div class="pagination"><button>‹</button><button class="active">1</button><button id="page2">2</button><button>3</button><button>···</button><button>›</button></div></div>
+    </section>
+    <footer class="footer"><span>© 2026 SafenetAI <span style="color:#24472e">·</span> Security, made visible.</span><span><i class="dot"></i> All demo systems operational <span style="color:#24472e">·</span> v0.9.0</span></footer>
+  </div>
+</main>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"><strong id="toastTitle">Notice</strong><p id="toastText"></p></div>
+<script>
+const kraken = (() => {
+  const svg = document.getElementById('kraken'), pupils = document.getElementById('pupils');
+  addEventListener('pointermove', e => {
+    const r = svg.getBoundingClientRect();
+    const dx = (e.clientX - (r.left + r.width / 2)) / innerWidth;
+    const dy = (e.clientY - (r.top + r.height * .35)) / innerHeight;
+    pupils.style.transform = `translate(${dx * 28}px,${dy * 16}px)`;
+  });
+  return { setMood: m => svg.dataset.mood = m }; // 'safe' | 'scan' | 'threat'
+})();
+const $=s=>document.querySelector(s);
+const toast=(title,msg)=>{ $('#toastTitle').textContent=title;$('#toastText').textContent=msg;$('#toast').classList.add('show');clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>$('#toast').classList.remove('show'),4200); };
+const navLabels={overview:'Overview',scanner:'URL Scanner',threats:'Threat Intelligence',history:'Scan History',reports:'Reports',integrations:'Integrations',settings:'Settings'};
+document.querySelectorAll('.nav button').forEach(btn=>btn.addEventListener('click',()=>{
+ document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');
+ const view=btn.dataset.view;$('#breadcrumb').textContent=navLabels[view]||'Overview';
+ if(view==='scanner'){ $('#urlInput').focus();$('#scannerPanel').scrollIntoView({behavior:'smooth',block:'center'}); }
+ else if(view==='history')$('#historyPanel').scrollIntoView({behavior:'smooth',block:'start'});
+ else if(view!=='overview')toast(navLabels[view],'This section is a UI placeholder. Connect your product service to enable live data.');
+ if(window.innerWidth<700)$('#sidebar').classList.remove('open');
+}));
+$('#menuBtn').addEventListener('click',()=>$('#sidebar').classList.toggle('open'));
+$('#helpBtn').addEventListener('click',()=>toast('SafenetAI help','Paste a URL into the scanner to see a demo risk assessment. This UI does not contact a threat-intelligence service.'));
+$('#notifBtn').addEventListener('click',()=>toast('Notifications','You are all caught up in this demo workspace.'));
+$('#viewThreats').addEventListener('click',()=>{document.querySelector('[data-view="threats"]').click()});
+$('#periodBtn').addEventListener('click',()=>toast('Activity range','The chart currently displays sample data for the last 7 days.'));
+function validUrl(raw){try{let u=new URL(/^https?:\/\//i.test(raw)?raw:'https://'+raw);return ['http:','https:'].includes(u.protocol)&&u.hostname.includes('.')}catch(e){return false}}
+function analyzeDemo(raw){
+ const normalized=/^https?:\/\//i.test(raw)?raw:'https://'+raw;let u;try{u=new URL(normalized)}catch(e){return null}
+ const host=u.hostname.toLowerCase(),path=u.pathname.toLowerCase();
+ const suspiciousWords=['login','verify','secure','account','password','wallet','update','billing','auth','confirm','free','gift'];
+ const hits=suspiciousWords.filter(w=>(host+'/'+path).includes(w));
+ const ip=/^\d{1,3}(\.\d{1,3}){3}$/.test(host), puny=host.includes('xn--'), manySub=host.split('.').length>=5, odd=raw.includes('@')||raw.length>110;
+ let score=Math.min(98,(hits.length*13)+(ip?28:0)+(puny?25:0)+(manySub?12:0)+(odd?18:0)+(u.protocol==='http:'?12:0));
+ if(['example.com','example.org','example.net','wikipedia.org','mozilla.org','github.com'].some(d=>host===d||host.endsWith('.'+d)))score=Math.min(score,12);
+ const level=score>=65?'Malicious':score>=30?'Suspicious':'Low risk';
+ return {url:normalized,host,score,level,hits:hits.length+(ip?1:0)+(puny?1:0)+(manySub?1:0)+(odd?1:0)+(u.protocol==='http:'?1:0)};
+}
+function esc(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function addScan(result){
+ const tbody=$('#scanRows'),tr=document.createElement('tr'),riskClass=result.level==='Malicious'?'danger':result.level==='Suspicious'?'warning':'safe',scoreColor=result.level==='Malicious'?'#ff969e':result.level==='Suspicious'?'#f1cc83':'#91dfb0';
+ tr.innerHTML=`<td><div class="url-cell"><div class="url-glyph">↗</div><div class="url-text"><strong>${esc(result.host)}</strong><small>${esc(result.url)}</small></div></div></td><td><span class="badge ${riskClass}">${result.level}</span></td><td style="color:${scoreColor};font-weight:700">${String(result.score).padStart(2,'0')} / 100</td><td>${result.hits} indicator${result.hits===1?'':'s'}</td><td>Just now</td><td>···</td>`;
+ tbody.prepend(tr);while(tbody.children.length>8)tbody.lastElementChild.remove();
+ const n=Number($('#metricScans').textContent.replace(',',''))+1;$('#metricScans').textContent=n.toLocaleString('en-US');
+ $('#tableCount').textContent='Showing '+tbody.children.length+' recent scans · Demo data';
+}
+$('#scanForm').addEventListener('submit',e=>{
+ e.preventDefault();const raw=$('#urlInput').value.trim();if(!validUrl(raw)){toast('Check the URL','Enter a valid domain or an http(s) URL, such as example.com.');return}
+ kraken.setMood('scan');const btn=$('#scanBtn');btn.disabled=true;btn.innerHTML='<span>◌</span> Analyzing…';
+ setTimeout(()=>{const result=analyzeDemo(raw);btn.disabled=false;btn.innerHTML='<span>⌕</span> Scan URL <span>→</span>';if(!result){kraken.setMood('safe');toast('Unable to analyze','Please check the URL format and try again.');return}addScan(result);kraken.setMood(result.level==='Low risk'?'safe':'threat');clearTimeout(window.krTimer);window.krTimer=setTimeout(()=>kraken.setMood('safe'),5000);toast('Demo analysis complete',`${result.level} · Score ${result.score}/100. This is a heuristic UI preview, not a real security verdict.`);$('#urlInput').value='';},850);
+});
+$('#exportBtn').addEventListener('click',()=>{
+ const rows=[['URL','Risk level','Risk score','Detection signals','Scanned']];
+ document.querySelectorAll('#scanRows tr').forEach(tr=>rows.push(Array.from(tr.querySelectorAll('td')).slice(0,5).map(td=>td.innerText.replace(/\s+/g,' ').trim())));
+ const csv=rows.map(r=>r.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(',')).join('\r\n');
+ const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='safenetai-scan-history-demo.csv';a.click();URL.revokeObjectURL(a.href);toast('Export prepared','Downloaded the visible demo scan rows as CSV.');
+});
+$('#page2').addEventListener('click',()=>toast('Pagination','Additional pages require a connected backend data source.'));
+$('#dateLabel').textContent=new Date().toLocaleDateString(undefined,{month:'short',day:'numeric',year:'numeric'});
+</script>
+</body>
+</html>
