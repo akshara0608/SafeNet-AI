@@ -85,6 +85,40 @@ body{background:radial-gradient(ellipse at 65% -20%,#124a2c 0%,transparent 42%),
 .hero .hero-text:after{content:"";display:block;width:90px;height:3px;margin:20px auto 0;border-radius:3px;background:linear-gradient(90deg,transparent,#3df08a,transparent);box-shadow:0 0 16px #3df08a}
 .hero-meta{margin-top:18px;justify-content:center}
 @media(max-width:700px){.kraken-wrap .kraken{width:170px}.hero{padding:16px 0 22px}.hero-meta{flex-wrap:wrap}}
+
+/* ===== Threat intelligence ===== */
+.ti-stats{display:flex;gap:22px;padding:0 19px 14px;flex-wrap:wrap}.ti-stats div{font-size:10px;color:var(--muted)}.ti-stats b{display:block;font-size:20px;color:#eafff2;font-weight:650;letter-spacing:-.03em}
+.ti-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid #172f1e}.ti-col{padding:16px 19px;min-width:0}.ti-col+.ti-col{border-left:1px solid #172f1e}
+.ti-col h3{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#6b7c70;font-weight:650;margin:0 0 12px}
+.ti-bar{margin-bottom:11px}.ti-bar-top{display:flex;justify-content:space-between;gap:8px;font-size:11px;color:#aecab6}.ti-bar-top span:last-child{color:#7f9485}
+.ti-track{height:6px;border-radius:4px;background:#132619;margin-top:5px;overflow:hidden}.ti-fill{height:100%;border-radius:4px}
+.ti-bar small{display:block;color:#6e7f73;font-size:9px;margin-top:4px}
+.ti-domain{display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid #162c1c;font-size:11px}.ti-domain:last-child{border-bottom:0}.ti-domain strong{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:550;color:#c4e4cd}.ti-domain span{color:#7f9485;font-size:10px;white-space:nowrap}
+.ti-empty{color:#6e7f73;font-size:11px;padding:4px 0}
+.period{display:flex;gap:6px;flex-wrap:wrap}.period button.active{background:#3df08a;border-color:#3df08a;color:#03130a;font-weight:700}
+.rp-actions{display:flex;gap:10px;flex-wrap:wrap;padding:16px 19px;border-top:1px solid #172f1e}.rp-actions .primary{height:40px;font-size:12px;text-decoration:none}
+.ghost{height:40px;border:1px solid #1f5a3a;border-radius:10px;background:#0f2014;color:#c4e4cd;padding:0 16px;display:flex;align-items:center;gap:8px;font-size:12px;font-weight:600;text-decoration:none}.ghost:hover{background:#172f1e}
+.rp-note{padding:0 19px 16px;color:#6e7f73;font-size:10px}
+.ig-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid #172f1e}.ig{padding:18px 19px;min-width:0}.ig+.ig{border-left:1px solid #172f1e}
+.ig-head{display:flex;align-items:center;gap:10px;margin-bottom:8px}.ig-head .metric-icon{flex:none}.ig-head strong{font-size:12px;flex:1}.ig p{color:var(--muted);font-size:11px;margin:0 0 12px}
+.ig label{display:block;font-size:10px;color:#879d8e;margin:10px 0 5px;letter-spacing:.04em}
+.ig input[type=text],.ig select{width:100%;height:36px;background:#071009;border:1px solid #22432b;border-radius:8px;color:#d3f5dd;padding:0 10px;outline:none;font-size:11px}
+.ig input[type=text]:focus,.ig select:focus{border-color:#3df08a}
+.ig .check{display:flex;align-items:center;gap:8px;font-size:11px;color:#aecab6;margin-top:12px}.ig .check input{accent-color:#3df08a}
+.ig-btns{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}.ig-btns .primary,.ig-btns .ghost{height:34px;font-size:11px;padding:0 13px}
+.ig-status{font-size:10px;color:#6e7f73;margin-top:10px;word-break:break-word}
+.ig pre{margin:0;background:#071009;border:1px solid #1e3d27;border-radius:8px;padding:10px;font:10px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:#9dffc4;white-space:pre-wrap;word-break:break-all}
+.ig ul{margin:0;padding-left:16px;color:#aecab6;font-size:11px}.ig li{margin:3px 0}.ig code{font:10px ui-monospace,Menlo,monospace;color:#9dffc4}
+.ig input[type=number],.ig textarea{width:100%;background:#071009;border:1px solid #22432b;border-radius:8px;color:#d3f5dd;padding:8px 10px;outline:none;font-size:11px}
+.ig input[type=number]{height:36px}.ig textarea{min-height:92px;resize:vertical;font:11px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace}
+.ig input[type=number]:focus,.ig textarea:focus{border-color:#3df08a}
+.st-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 10px}
+.st-scale{display:flex;height:8px;border-radius:5px;overflow:hidden;margin-top:12px}.st-scale span{height:100%}
+.st-scale-labels{display:flex;justify-content:space-between;font-size:9px;color:#6e7f73;margin-top:4px}
+.danger-btn{height:34px;border:1px solid #4a2c32;border-radius:10px;background:#1a1414;color:#ff969e;padding:0 13px;font-size:11px;font-weight:600}.danger-btn:hover{background:#2a1a1c}
+.st-footer{display:flex;gap:8px;align-items:center;padding:14px 19px;border-top:1px solid #172f1e;flex-wrap:wrap}.st-footer .primary,.st-footer .ghost{height:36px;font-size:12px;padding:0 15px}.st-footer span{color:#6e7f73;font-size:10px;margin-left:auto}
+@media(max-width:1050px){.ig-grid{grid-template-columns:1fr}.ig+.ig{border-left:0;border-top:1px solid #172f1e}}
+@media(max-width:1050px){.ti-grid{grid-template-columns:1fr}.ti-col+.ti-col{border-left:0;border-top:1px solid #172f1e}}
 </style>
 </head>
 <body>
@@ -172,7 +206,7 @@ body{background:radial-gradient(ellipse at 65% -20%,#124a2c 0%,transparent 42%),
     <section class="scan-panel" id="scannerPanel">
       <div class="panel-top"><div class="panel-title"><span class="mini-shield">⌁</span>Analyze a URL</div><span class="subtle">AI-powered risk assessment</span></div>
       <form class="scan-form" id="scanForm"><div class="input-wrap"><span class="link-icon">↗</span><input id="urlInput" type="text" inputmode="url" autocomplete="url" placeholder="Paste a URL to inspect (e.g. https://example.com)" aria-label="URL to scan" required></div><button class="primary" id="scanBtn" type="submit"><span>⌕</span> Scan URL <span>→</span></button></form>
-      <div class="scan-foot"><span class="lock">♧</span><span>Scans are simulated in this frontend demo.</span><span>Never enter credentials or sensitive URLs.</span></div>
+      <div class="scan-foot"><span class="lock">♧</span><span>Scans run on the SafeNet Random Forest model.</span><span>Never enter credentials or sensitive URLs.</span></div>
     </section>
     <section class="metrics" aria-label="Security metrics">
       <article class="metric"><div class="metric-top">URLs analyzed <span class="metric-icon">⌕</span></div><div class="metric-value" id="metricScans">12,846</div><div class="metric-note"><span class="up">↗ 12.8%</span> <span>vs. previous 30 days</span></div></article>
@@ -193,13 +227,19 @@ body{background:radial-gradient(ellipse at 65% -20%,#124a2c 0%,transparent 42%),
           <g fill="#9dffc4" stroke="#0b180e" stroke-width="2"><circle cx="35" cy="114" r="3.5"/><circle cx="130" cy="94" r="3.5"/><circle cx="226" cy="102" r="3.5"/><circle cx="322" cy="61" r="3.5"/><circle cx="418" cy="72" r="3.5"/><circle cx="514" cy="39" r="3.5"/><circle cx="610" cy="48" r="3.5"/></g>
         </svg><div class="chart-labels"><span>Oct 08</span><span>Oct 09</span><span>Oct 10</span><span>Oct 11</span><span>Oct 12</span><span>Oct 13</span><span>Oct 14</span></div></div>
       </article>
-      <article class="card risk-card"><div class="card-head"><div><h2>Recent threat signals</h2><p>Priority indicators from monitored activity</p></div><button class="text-btn" id="viewThreats">View all ↗</button></div>
-        <div class="risk-list">
-          <div class="risk-row"><div class="risk-icon">⚠</div><div class="risk-main"><strong>Credential harvesting</strong><small>Lookalike sign-in domain</small></div><div class="risk-score">CRITICAL</div></div>
-          <div class="risk-row"><div class="risk-icon amber">⌁</div><div class="risk-main"><strong>Suspicious redirect chain</strong><small>Multiple redirect hops</small></div><div class="risk-score mid">HIGH</div></div>
-          <div class="risk-row"><div class="risk-icon neutral">◈</div><div class="risk-main"><strong>Newly registered domain</strong><small>Domain age signal</small></div><div class="risk-score mid">MEDIUM</div></div>
+      <article class="card risk-card"><div class="card-head"><div><h2>Recent threat signals</h2><p>Most frequent signals in high-risk scans</p></div><button class="text-btn" id="viewThreats">View all ↗</button></div>
+        <div class="risk-list" id="signalList">
+          <div class="ti-empty">Loading threat signals…</div>
         </div>
       </article>
+    </section>
+    <section class="card table-card" id="threatPanel"><div class="card-head"><div><h2>Threat intelligence</h2><p>Built from every URL scanned on this SafeNet backend</p></div><button class="text-btn" id="refreshThreats">↻ Refresh</button></div>
+      <div class="ti-stats"><div><b id="tiTotal">0</b>URLs scanned</div><div><b id="tiHigh">0</b>High / critical</div><div><b id="tiPhish">0</b>Classified phishing</div></div>
+      <div class="ti-grid">
+        <div class="ti-col"><h3>Risk distribution</h3><div id="tiLevels"></div></div>
+        <div class="ti-col"><h3>Detection signals</h3><div id="tiSignals"></div></div>
+        <div class="ti-col"><h3>Most flagged domains</h3><div id="tiDomains"></div></div>
+      </div>
     </section>
     <section class="card table-card" id="historyPanel"><div class="card-head"><div><h2>Recent URL scans</h2><p>Latest analysis activity across your workspace</p></div><button class="text-btn" id="exportBtn">↧ Export CSV</button></div>
       <div class="table-scroll"><table><thead><tr><th>URL / Domain</th><th>Risk level</th><th>Risk score</th><th>Detection signals</th><th>Scanned</th><th></th></tr></thead><tbody id="scanRows">
@@ -209,6 +249,54 @@ body{background:radial-gradient(ellipse at 65% -20%,#124a2c 0%,transparent 42%),
         <tr><td><div class="url-cell"><div class="url-glyph">↗</div><div class="url-text"><strong>account-support.example</strong><small>https://account-support.example/auth</small></div></div></td><td><span class="badge danger">Malicious</span></td><td style="color:#ff969e;font-weight:700">91 / 100</td><td>5 indicators</td><td>1 hr ago</td><td>···</td></tr>
       </tbody></table></div>
       <div class="table-footer"><span id="tableCount">Showing 4 of 12846 scans · Demo data</span><div class="pagination"><button>‹</button><button class="active">1</button><button id="page2">2</button><button>3</button><button>···</button><button>›</button></div></div>
+    </section>
+    <section class="card table-card" id="reportsPanel"><div class="card-head"><div><h2>Reports</h2><p>Summaries and exports of scans stored on this backend</p></div>
+        <div class="period" id="reportPeriod"><button class="text-btn" data-days="1">24 h</button><button class="text-btn active" data-days="7">7 days</button><button class="text-btn" data-days="30">30 days</button><button class="text-btn" data-days="all">All time</button></div></div>
+      <div class="ti-stats"><div><b id="rpTotal">0</b>URLs scanned</div><div><b id="rpHigh">0</b>High / critical</div><div><b id="rpPhish">0</b>Classified phishing</div><div><b id="rpAvg">0</b>Average risk score</div></div>
+      <div class="rp-actions"><a class="primary" id="rpPrint" href="/report?days=7" target="_blank" rel="noopener">⎙ Open printable report</a><a class="ghost" id="rpCsv" href="/api/reports/csv?days=7">↧ Download CSV</a></div>
+      <div class="rp-note">The printable report includes risk distribution, detection signals, most flagged domains and every scan in the period. Use your browser's print dialog to save it as PDF.</div>
+    </section>
+    <section class="card table-card" id="integrationsPanel"><div class="card-head"><div><h2>Integrations</h2><p>Send alerts and connect other tools to SafeNet</p></div></div>
+      <div class="ig-grid">
+        <div class="ig"><div class="ig-head"><span class="metric-icon">⚑</span><strong>Webhook alerts</strong><span class="badge unknown" id="whBadge">Off</span></div>
+          <p>Post high-risk scans to Slack, Discord or any endpoint that accepts JSON.</p>
+          <label for="whUrl">Webhook URL</label><input type="text" id="whUrl" placeholder="https://hooks.slack.com/services/…" autocomplete="off" spellcheck="false">
+          <label for="whLevel">Alert when risk is at least</label><select id="whLevel"><option>Medium</option><option selected>High</option><option>Critical</option></select>
+          <label class="check"><input type="checkbox" id="whEnabled"> Enable alerts</label>
+          <div class="ig-btns"><button class="primary" id="whSave" type="button">Save</button><button class="ghost" id="whTest" type="button">Send test</button></div>
+          <div class="ig-status" id="whStatus"></div></div>
+        <div class="ig"><div class="ig-head"><span class="metric-icon">⌘</span><strong>REST API</strong><span class="badge safe">Connected</span></div>
+          <p>Scan URLs from scripts, bots or other services.</p>
+          <pre id="apiSnippet"></pre>
+          <ul style="margin-top:10px"><li><code>GET /api/threats</code> threat intelligence</li><li><code>GET /api/reports?days=7</code> report data</li><li><code>GET /api/reports/csv</code> CSV export</li></ul></div>
+        <div class="ig"><div class="ig-head"><span class="metric-icon">◎</span><strong>Chrome extension</strong><span class="badge warning">Planned</span></div>
+          <p>Real-time scanning while browsing, with a warning page for high-risk links.</p>
+          <ul><li>Calls <code>POST /api/analyze</code> on navigation</li><li>Popup verdict with risk score</li><li>Full-page block for critical URLs</li></ul></div>
+      </div>
+    </section>
+    <section class="card table-card" id="settingsPanel"><div class="card-head"><div><h2>Settings</h2><p>How SafeNet turns the model's probability into a risk level</p></div></div>
+      <div class="ig-grid">
+        <div class="ig"><div class="ig-head"><span class="metric-icon">⚙</span><strong>Risk scoring</strong></div>
+          <p>Risk score = model phishing probability, plus a penalty for plain HTTP.</p>
+          <label for="stPenalty">HTTP penalty (points)</label><input type="number" id="stPenalty" min="0" max="50" step="1">
+          <div class="st-row">
+            <div><label for="stLow">Low up to</label><input type="number" id="stLow" min="1" max="98" step="1"></div>
+            <div><label for="stMedium">Medium up to</label><input type="number" id="stMedium" min="2" max="98" step="1"></div>
+            <div><label for="stHigh">High up to</label><input type="number" id="stHigh" min="3" max="99" step="1"></div>
+            <div><label>Critical</label><input type="number" id="stCritical" disabled></div>
+          </div>
+          <div class="st-scale" id="stScale"></div><div class="st-scale-labels"><span>0</span><span>100</span></div></div>
+        <div class="ig"><div class="ig-head"><span class="metric-icon">◈</span><strong>Domain lists</strong></div>
+          <p>One domain per line. Subdomains are included, so <code>example.com</code> also covers <code>www.example.com</code>.</p>
+          <label for="stTrusted">Trusted (always Low risk)</label><textarea id="stTrusted" spellcheck="false" placeholder="gla.ac.in&#10;github.com"></textarea>
+          <label for="stBlocked">Blocked (always Critical)</label><textarea id="stBlocked" spellcheck="false" placeholder="known-bad.example"></textarea></div>
+        <div class="ig"><div class="ig-head"><span class="metric-icon">▤</span><strong>Data</strong></div>
+          <p>Scans are stored locally in <code>backend/safenet.db</code> and feed threat intelligence and reports.</p>
+          <div class="ti-stats" style="padding:4px 0 6px"><div><b id="stScanCount">0</b>stored scans</div></div>
+          <div class="ig-btns"><button class="danger-btn" id="stClear" type="button">Clear scan history</button></div>
+          <div class="ig-status">Clearing removes every stored scan. Settings and integrations are kept. This cannot be undone.</div></div>
+      </div>
+      <div class="st-footer"><button class="primary" id="stSave" type="button">Save settings</button><button class="ghost" id="stReset" type="button">Restore defaults</button><span>Changes apply to new scans only.</span></div>
     </section>
     <footer class="footer"><span>© 2026 SafenetAI <span style="color:#24472e">·</span> Security, made visible.</span><span><i class="dot"></i> All demo systems operational <span style="color:#24472e">·</span> v0.9.0</span></footer>
   </div>
@@ -234,38 +322,137 @@ document.querySelectorAll('.nav button').forEach(btn=>btn.addEventListener('clic
  const view=btn.dataset.view;$('#breadcrumb').textContent=navLabels[view]||'Overview';
  if(view==='scanner'){ $('#urlInput').focus();$('#scannerPanel').scrollIntoView({behavior:'smooth',block:'center'}); }
  else if(view==='history')$('#historyPanel').scrollIntoView({behavior:'smooth',block:'start'});
- else if(view!=='overview')toast(navLabels[view],'This section is a UI placeholder. Connect your product service to enable live data.');
+ else if(view==='threats'){loadThreats();$('#threatPanel').scrollIntoView({behavior:'smooth',block:'start'});}
+ else if(view==='reports'){loadReport();$('#reportsPanel').scrollIntoView({behavior:'smooth',block:'start'});}
+ else if(view==='integrations'){loadIntegrations();$('#integrationsPanel').scrollIntoView({behavior:'smooth',block:'start'});}
+ else if(view==='settings'){loadSettings();$('#settingsPanel').scrollIntoView({behavior:'smooth',block:'start'});}
  if(window.innerWidth<700)$('#sidebar').classList.remove('open');
 }));
 $('#menuBtn').addEventListener('click',()=>$('#sidebar').classList.toggle('open'));
-$('#helpBtn').addEventListener('click',()=>toast('SafenetAI help','Paste a URL into the scanner to see a demo risk assessment. This UI does not contact a threat-intelligence service.'));
+$('#helpBtn').addEventListener('click',()=>toast('SafenetAI help','Paste a URL into the scanner to get a Random Forest risk assessment from the SafeNet backend.'));
 $('#notifBtn').addEventListener('click',()=>toast('Notifications','You are all caught up in this demo workspace.'));
 $('#viewThreats').addEventListener('click',()=>{document.querySelector('[data-view="threats"]').click()});
 $('#periodBtn').addEventListener('click',()=>toast('Activity range','The chart currently displays sample data for the last 7 days.'));
 function validUrl(raw){try{let u=new URL(/^https?:\/\//i.test(raw)?raw:'https://'+raw);return ['http:','https:'].includes(u.protocol)&&u.hostname.includes('.')}catch(e){return false}}
-function analyzeDemo(raw){
- const normalized=/^https?:\/\//i.test(raw)?raw:'https://'+raw;let u;try{u=new URL(normalized)}catch(e){return null}
- const host=u.hostname.toLowerCase(),path=u.pathname.toLowerCase();
- const suspiciousWords=['login','verify','secure','account','password','wallet','update','billing','auth','confirm','free','gift'];
- const hits=suspiciousWords.filter(w=>(host+'/'+path).includes(w));
- const ip=/^\d{1,3}(\.\d{1,3}){3}$/.test(host), puny=host.includes('xn--'), manySub=host.split('.').length>=5, odd=raw.includes('@')||raw.length>110;
- let score=Math.min(98,(hits.length*13)+(ip?28:0)+(puny?25:0)+(manySub?12:0)+(odd?18:0)+(u.protocol==='http:'?12:0));
- if(['example.com','example.org','example.net','wikipedia.org','mozilla.org','github.com'].some(d=>host===d||host.endsWith('.'+d)))score=Math.min(score,12);
- const level=score>=65?'Malicious':score>=30?'Suspicious':'Low risk';
- return {url:normalized,host,score,level,hits:hits.length+(ip?1:0)+(puny?1:0)+(manySub?1:0)+(odd?1:0)+(u.protocol==='http:'?1:0)};
+const API_URL='/api/analyze';
+// Map the backend risk_level (Low / Medium / High / Critical) to a table row
+function toScanRow(api){
+ let u;try{u=new URL(/^https?:\/\//i.test(api.url)?api.url:'https://'+api.url)}catch(e){u={href:api.url,hostname:api.url}}
+ const lvl=api.risk_level,cls=lvl==='Critical'||lvl==='High'?'danger':lvl==='Medium'?'warning':'safe';
+ // Domain lists override the model, so say so instead of showing only the level
+ const level=api.list_match==='blocked'?'Blocked':api.list_match==='trusted'?'Trusted':lvl+' risk';
+ return {url:u.href,host:u.hostname,score:Math.round(api.risk_score),level,cls,hits:api.indicators.length};
+}
+function scanToast(api,row){
+ if(api.list_match==='blocked')return['Blocked by your list · Critical risk',`${row.host} is on your blocked domains in Settings. Model alone: ${api.classification}, ${api.phishing_probability}% phishing.`];
+ if(api.list_match==='trusted')return['Trusted by your list · Low risk',`${row.host} is on your trusted domains in Settings. Model alone: ${api.classification}, ${api.phishing_probability}% phishing.`];
+ return[api.classification+' · '+api.risk_level+' risk',`Score ${row.score}/100 · phishing probability ${api.phishing_probability}%. ${api.recommendations[0]||''}`];
 }
 function esc(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function addScan(result){
- const tbody=$('#scanRows'),tr=document.createElement('tr'),riskClass=result.level==='Malicious'?'danger':result.level==='Suspicious'?'warning':'safe',scoreColor=result.level==='Malicious'?'#ff969e':result.level==='Suspicious'?'#f1cc83':'#91dfb0';
+ const tbody=$('#scanRows'),tr=document.createElement('tr'),riskClass=result.cls,scoreColor={danger:'#ff969e',warning:'#f1cc83',safe:'#91dfb0'}[result.cls];
  tr.innerHTML=`<td><div class="url-cell"><div class="url-glyph">↗</div><div class="url-text"><strong>${esc(result.host)}</strong><small>${esc(result.url)}</small></div></div></td><td><span class="badge ${riskClass}">${result.level}</span></td><td style="color:${scoreColor};font-weight:700">${String(result.score).padStart(2,'0')} / 100</td><td>${result.hits} indicator${result.hits===1?'':'s'}</td><td>Just now</td><td>···</td>`;
  tbody.prepend(tr);while(tbody.children.length>8)tbody.lastElementChild.remove();
  const n=Number($('#metricScans').textContent.replace(',',''))+1;$('#metricScans').textContent=n.toLocaleString('en-US');
- $('#tableCount').textContent='Showing '+tbody.children.length+' recent scans · Demo data';
+ $('#tableCount').textContent='Showing '+tbody.children.length+' recent scans';
 }
-$('#scanForm').addEventListener('submit',e=>{
+const LEVEL_COLORS={Low:'#91dfb0',Medium:'#f1cc83',High:'#ffae7a',Critical:'#ff7c86'};
+function tiBar(label,right,pct,color,note){return `<div class="ti-bar"><div class="ti-bar-top"><span>${esc(label)}</span><span>${right}</span></div><div class="ti-track"><div class="ti-fill" style="width:${Math.max(pct,pct>0?3:0)}%;background:${color}"></div></div>${note?`<small>${esc(note)}</small>`:''}</div>`}
+function renderThreats(t){
+ $('#tiTotal').textContent=t.total_scans;$('#tiHigh').textContent=t.high_risk_scans;$('#tiPhish').textContent=t.phishing_scans;
+ const empty='<div class="ti-empty">No scans yet. Analyze a URL to build threat intelligence.</div>';
+ const total=t.total_scans||1;
+ $('#tiLevels').innerHTML=t.total_scans?['Critical','High','Medium','Low'].map(l=>{const n=t.levels[l]||0;return tiBar(l,n,n/total*100,LEVEL_COLORS[l])}).join(''):empty;
+ const maxSig=Math.max(1,...t.signals.map(x=>x.count));
+ $('#tiSignals').innerHTML=t.signals.length?t.signals.map(x=>tiBar(x.label,`${x.count} · ${x.high_risk_count} high-risk`,x.count/maxSig*100,x.high_risk_count?'#ff7c86':'#3df08a',x.description)).join(''):(t.total_scans?'<div class="ti-empty">No detection signals in scanned URLs.</div>':empty);
+ $('#tiDomains').innerHTML=t.top_domains.length?t.top_domains.map(d=>`<div class="ti-domain"><strong title="${esc(d.host)}">${esc(d.host)}</strong><span>${d.count}× · max ${Math.round(d.max_risk_score)}</span></div>`).join(''):'<div class="ti-empty">No high-risk domains detected yet.</div>';
+ const top=t.signals.filter(x=>x.high_risk_count).slice(0,3);
+ $('#signalList').innerHTML=top.length?top.map(x=>{const share=x.high_risk_count/Math.max(1,t.high_risk_scans),cls=share>=.6?['','']:share>=.3?['amber','mid']:['neutral','mid'];
+  return `<div class="risk-row"><div class="risk-icon ${cls[0]}">⚠</div><div class="risk-main"><strong>${esc(x.label)}</strong><small>${esc(x.description)}</small></div><div class="risk-score ${cls[1]}">${x.high_risk_count}/${t.high_risk_scans}</div></div>`}).join(''):'<div class="ti-empty" style="padding:12px 0">No high-risk scans yet.</div>';
+}
+async function loadThreats(){
+ try{const res=await fetch('/api/threats');const t=await res.json();if(!res.ok||t.error)throw new Error(t.error||('HTTP '+res.status));renderThreats(t);}
+ catch(err){$('#signalList').innerHTML=$('#tiSignals').innerHTML='<div class="ti-empty">Threat intelligence unavailable ('+esc(err.message)+').</div>';}
+}
+$('#refreshThreats').addEventListener('click',loadThreats);
+// ----- Reports -----
+let reportDays='7';
+async function loadReport(){
+ const q='?days='+reportDays;$('#rpPrint').href='/report'+q;$('#rpCsv').href='/api/reports/csv'+q;
+ try{const res=await fetch('/api/reports'+q);const r=await res.json();if(!res.ok||r.error)throw new Error(r.error||res.status);
+  const s=r.summary;$('#rpTotal').textContent=s.total_scans;$('#rpHigh').textContent=s.high_risk_scans;$('#rpPhish').textContent=s.phishing_scans;$('#rpAvg').textContent=s.avg_risk_score;}
+ catch(err){toast('Reports unavailable',err.message)}
+}
+document.querySelectorAll('#reportPeriod button').forEach(b=>b.addEventListener('click',()=>{
+ document.querySelectorAll('#reportPeriod button').forEach(x=>x.classList.remove('active'));b.classList.add('active');reportDays=b.dataset.days;loadReport();
+}));
+// ----- Integrations -----
+function showWebhook(w){
+ $('#whUrl').value=w.url;$('#whLevel').value=w.min_level;$('#whEnabled').checked=w.enabled;
+ const on=w.enabled&&w.url;$('#whBadge').textContent=on?'Active':'Off';$('#whBadge').className='badge '+(on?'safe':'unknown');
+ $('#whStatus').textContent=w.last_status?`Last delivery: ${w.last_status} · ${new Date(w.last_sent_at).toLocaleString()}`:(on?'No alerts sent yet.':'');
+}
+async function loadIntegrations(){
+ $('#apiSnippet').textContent=`curl -X POST ${location.origin}/api/analyze \\\n  -H "Content-Type: application/json" \\\n  -d '{"url":"https://example.com"}'`;
+ try{const res=await fetch('/api/integrations');const d=await res.json();showWebhook(d.webhook)}catch(err){$('#whStatus').textContent='Could not load settings ('+err.message+').'}
+}
+async function saveWebhook(){
+ const res=await fetch('/api/integrations/webhook',{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify({url:$('#whUrl').value.trim(),min_level:$('#whLevel').value,enabled:$('#whEnabled').checked})});
+ const d=await res.json();if(!res.ok)throw new Error(d.error||res.status);showWebhook(d);return d;
+}
+$('#whSave').addEventListener('click',async()=>{try{await saveWebhook();toast('Webhook saved',$('#whEnabled').checked?'High-risk scans will be posted to your webhook.':'Alerts are turned off.')}catch(err){toast('Could not save webhook',err.message)}});
+$('#whTest').addEventListener('click',async()=>{
+ const btn=$('#whTest');btn.disabled=true;btn.textContent='Sending…';
+ try{await saveWebhook();const res=await fetch('/api/integrations/webhook/test',{method:'POST'});const d=await res.json();if(!res.ok)throw new Error(d.error||res.status);showWebhook(d.webhook);toast('Test alert',d.status)}
+ catch(err){toast('Test failed',err.message)}finally{btn.disabled=false;btn.textContent='Send test'}
+});
+// ----- Settings -----
+const lines=v=>v.split('\n').map(x=>x.trim()).filter(Boolean);
+function drawScale(){
+ const lo=+$('#stLow').value||0,me=+$('#stMedium').value||0,hi=+$('#stHigh').value||0;
+ $('#stCritical').value=hi<100?hi+1:'';
+ const ok=lo>0&&lo<me&&me<hi&&hi<100;
+ $('#stScale').innerHTML=ok?[[lo,'Low'],[me-lo,'Medium'],[hi-me,'High'],[100-hi,'Critical']].map(([w,l])=>`<span title="${l}" style="width:${w}%;background:${LEVEL_COLORS[l]}"></span>`).join(''):'<span style="width:100%;background:#4a2c32"></span>';
+}
+function showSettings(st){
+ $('#stPenalty').value=st.http_penalty;$('#stLow').value=st.low_max;$('#stMedium').value=st.medium_max;$('#stHigh').value=st.high_max;
+ $('#stTrusted').value=st.trusted_domains.join('\n');$('#stBlocked').value=st.blocked_domains.join('\n');drawScale();
+}
+async function loadScanCount(){try{const t=await (await fetch('/api/threats')).json();$('#stScanCount').textContent=t.total_scans}catch(e){}}
+async function loadSettings(){
+ try{const res=await fetch('/api/settings');const st=await res.json();if(!res.ok)throw new Error(st.error||res.status);showSettings(st)}catch(err){toast('Settings unavailable',err.message)}
+ loadScanCount();
+}
+['#stLow','#stMedium','#stHigh'].forEach(id=>$(id).addEventListener('input',drawScale));
+$('#stSave').addEventListener('click',async()=>{
+ const body={http_penalty:+$('#stPenalty').value,low_max:+$('#stLow').value,medium_max:+$('#stMedium').value,high_max:+$('#stHigh').value,trusted_domains:lines($('#stTrusted').value),blocked_domains:lines($('#stBlocked').value)};
+ try{const res=await fetch('/api/settings',{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});const st=await res.json();if(!res.ok)throw new Error(st.error||res.status);
+  showSettings(st);toast('Settings saved',`${st.trusted_domains.length} trusted, ${st.blocked_domains.length} blocked domains. New scans use these settings.`)}
+ catch(err){toast('Could not save settings',err.message)}
+});
+$('#stReset').addEventListener('click',async()=>{
+ if(!confirm('Restore default scoring and empty both domain lists?'))return;
+ try{const st=await (await fetch('/api/settings/reset',{method:'POST'})).json();showSettings(st);toast('Defaults restored','HTTP penalty 10 · Low ≤30 · Medium ≤50 · High ≤75.')}catch(err){toast('Could not restore defaults',err.message)}
+});
+$('#stClear').addEventListener('click',async()=>{
+ if(!confirm('Delete every stored scan? Threat intelligence and reports will start from zero. This cannot be undone.'))return;
+ try{const d=await (await fetch('/api/scans',{method:'DELETE'})).json();toast('Scan history cleared',`${d.deleted} scan${d.deleted===1?'':'s'} deleted.`);loadScanCount();loadThreats();loadReport()}catch(err){toast('Could not clear history',err.message)}
+});
+loadReport();loadIntegrations();loadSettings();
+loadThreats();
+$('#scanForm').addEventListener('submit',async e=>{
  e.preventDefault();const raw=$('#urlInput').value.trim();if(!validUrl(raw)){toast('Check the URL','Enter a valid domain or an http(s) URL, such as example.com.');return}
  kraken.setMood('scan');const btn=$('#scanBtn');btn.disabled=true;btn.innerHTML='<span>◌</span> Analyzing…';
- setTimeout(()=>{const result=analyzeDemo(raw);btn.disabled=false;btn.innerHTML='<span>⌕</span> Scan URL <span>→</span>';if(!result){kraken.setMood('safe');toast('Unable to analyze','Please check the URL format and try again.');return}addScan(result);kraken.setMood(result.level==='Low risk'?'safe':'threat');clearTimeout(window.krTimer);window.krTimer=setTimeout(()=>kraken.setMood('safe'),5000);toast('Demo analysis complete',`${result.level} · Score ${result.score}/100. This is a heuristic UI preview, not a real security verdict.`);$('#urlInput').value='';},850);
+ try{
+  const res=await fetch(API_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({url:raw})});
+  const data=await res.json();
+  if(!res.ok||data.error)throw new Error(data.error||('HTTP '+res.status));
+  const row=toScanRow(data);addScan(row);loadThreats();loadReport();loadScanCount();
+  kraken.setMood(row.cls==='safe'?'safe':'threat');clearTimeout(window.krTimer);window.krTimer=setTimeout(()=>kraken.setMood('safe'),5000);
+  toast(...scanToast(data,row));
+  $('#urlInput').value='';
+ }catch(err){kraken.setMood('safe');toast('Unable to analyze','Could not reach the SafeNet backend ('+err.message+'). Start it with: python backend/app.py');}
+ finally{btn.disabled=false;btn.innerHTML='<span>⌕</span> Scan URL <span>→</span>';}
 });
 $('#exportBtn').addEventListener('click',()=>{
  const rows=[['URL','Risk level','Risk score','Detection signals','Scanned']];
