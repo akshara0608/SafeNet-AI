@@ -7,7 +7,8 @@ import os
 import sys
 
 # Add ml folder and project root to Python path
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+# (this file lives in backend/, so the project root is one level up)
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ML_DIR = os.path.join(PROJECT_ROOT, "ml")
 
 for p in (PROJECT_ROOT, ML_DIR):
@@ -15,18 +16,22 @@ for p in (PROJECT_ROOT, ML_DIR):
         sys.path.append(p)
 
 from predict import predict_url
+from fast_feature_extractor import extract_fast_features
 from risk_engine import analyze_url as calculate_final_risk
+from reputation import lookup as reputation_lookup
 
 
-def analyze(url: str) -> dict:
+def analyze(url: str, settings: dict = None) -> dict:
     """
     Complete SafeNet URL Security Analysis.
 
     Pipeline:
-    1. Random Forest URL classification.
-    2. HTTPS security analysis.
-    3. Risk score and severity calculation.
-    4. Security indicators and recommendations.
+    1. Random Forest hostname classification (model V3).
+    2. URL pattern signals (path keywords, @, shorteners, ports) and
+       popular-domain reputation (Tranco top 100k).
+    3. HTTPS security analysis.
+    4. Risk score and severity calculation.
+    5. Security indicators and recommendations.
     """
 
     if not url or not isinstance(url, str):
@@ -45,9 +50,16 @@ def analyze(url: str) -> dict:
     classification = str(ml_result["prediction"])
 
     # Step 2: Risk Engine
+    # Full-URL features: path signals for the risk engine and
+    # threat intelligence (the V3 model itself sees the hostname only)
+    url_features = extract_fast_features(url)
+
     risk_result = calculate_final_risk(
         phishing_prob,
-        url
+        url,
+        settings,
+        url_features,
+        reputation_lookup(url)
     )
 
     # Step 3: Final SafeNet response
@@ -65,6 +77,8 @@ def analyze(url: str) -> dict:
 
         "risk_score": float(risk_result["risk_score"]),
         "risk_level": str(risk_result["risk_level"]),
+        "list_match": risk_result["list_match"],
+        "reputation": risk_result["reputation"],
 
         "indicators": [
             str(item)
@@ -78,7 +92,7 @@ def analyze(url: str) -> dict:
 
         "features": {
             str(key): float(value)
-            for key, value in ml_result.get("features", {}).items()
+            for key, value in url_features.items()
         }
     }
 
